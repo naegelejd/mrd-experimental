@@ -1,5 +1,10 @@
 name: Configure CPP Build Environment
 description: Configures the conda environment
+# TODO:
+# The following inputs are currently expected environment variables:
+# YARDL_VERSION, e.g. 0.5.0
+# CONDA_CACHE_NUMBER, e.g. 0
+
 runs:
   using: composite
   steps:
