@@ -1,4 +1,4 @@
-name: Test Matlab SDK
+name: Matlab
 
 on:
   push:

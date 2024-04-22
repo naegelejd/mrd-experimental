@@ -1,4 +1,4 @@
-name: Test and Package Python SDK
+name: Python
 
 on:
   push:

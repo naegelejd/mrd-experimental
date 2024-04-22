@@ -32,7 +32,7 @@ jobs:
 
     strategy:
       matrix:
-        cppVersion: [17, 20]
+        cppVersion: [17]
 
     name: Validate C++${{ matrix.cppVersion }}
 

@@ -1,5 +1,7 @@
 set shell := ['bash', '-ceuo', 'pipefail']
 
+cpp_version := "17"
+
 @default: test
 
 @ensure-build-dir:
@@ -7,7 +9,7 @@ set shell := ['bash', '-ceuo', 'pipefail']
 
 @configure: ensure-build-dir
     cd cpp/build; \
-    cmake -GNinja  ..
+    cmake -GNinja -D CMAKE_CXX_STANDARD={{ cpp_version }} ..
 
 @build: configure
     cd cpp/build && ninja
