@@ -6,8 +6,6 @@ on:
     tags: ["v*.*.*"]
   pull_request:
     branches: [main]
-  schedule:
-    - cron: "0 0 * * 3" # 00:00 every Wednesday
   workflow_dispatch:
 
 jobs:

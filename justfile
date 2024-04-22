@@ -36,3 +36,15 @@ set shell := ['bash', '-ceuo', 'pipefail']
     diff direct.bin roundtrip.bin & diff recon_direct.bin recon_rountrip.bin
 
 @test: generate build converter-roundtrip-test
+
+@validate: test
+
+validate-with-no-changes: validate
+    #!/usr/bin/env bash
+    set -euo pipefail
+
+    if [[ `git status --porcelain` ]]; then
+      echo "ERROR: Found uncommitted changes:"
+      git status --porcelain
+      exit 1
+    fi

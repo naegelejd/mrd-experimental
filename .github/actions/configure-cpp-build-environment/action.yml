@@ -1,0 +1,34 @@
+name: Configure CPP Build Environment
+description: Configures the conda environment
+runs:
+  using: composite
+  steps:
+
+    - name: Setup Mambaforge
+      uses: conda-incubator/setup-miniconda@v3
+      with:
+        miniforge-variant: Mambaforge
+        miniforge-version: latest
+        # Do not specify environment file - see Cache step below
+        activate-environment: mrd
+        use-mamba: true
+
+    - name: Get Date
+      id: get-date
+      shell: bash
+      run: echo "DATE=$(date -u +'%Y%m%d')" >> $GITHUB_ENV
+
+    - name: Cache Conda Env
+      id: cache-conda
+      uses: actions/cache@v3
+      with:
+        path: ${{ env.CONDA }}/envs
+        key:
+            conda-${{ runner.os }}--${{ runner.arch }}--${{
+            hashFiles('environment.yml') }}-${{
+            env.DATE }}-${{
+            env.CONDA_CACHE_NUMBER }}
+
+    - name: Update Environment
+      run: mamba env update -n mrd -f environment.yml
+      if: steps.cache-conda.outputs.cache-hit != 'true'
