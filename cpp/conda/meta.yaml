@@ -15,8 +15,8 @@ build:
 
 requirements:
   build:
-    - clang=13.0.1        # [osx]
-    - clangxx=13.0.1      # [osx]
+    - clang=14        # [osx]
+    - clangxx=14      # [osx]
     - cmake>=3.21.3
     - fftw=3.3.9
     - fmt=8.1.1
