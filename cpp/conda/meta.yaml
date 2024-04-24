@@ -1,0 +1,52 @@
+{% set major = load_file_regex(load_file='CMakeLists.txt', regex_pattern='(?<=set\(MRD_VERSION_MAJOR )([^\)]+)') %}
+{% set minor = load_file_regex(load_file='CMakeLists.txt', regex_pattern='(?<=set\(MRD_VERSION_MINOR )([^\)]+)') %}
+{% set patch = load_file_regex(load_file='CMakeLists.txt', regex_pattern='(?<=set\(MRD_VERSION_PATCH )([^\)]+)') %}
+{% set repo = 'https://github.com/ismrmrd/mrd-experimental' %}
+
+package:
+  name: mrd
+  version: {{ major.group(1) }}.{{ minor.group(1) }}.{{ patch.group(1) }}
+
+source:
+  path: ../
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - clang=13.0.1        # [osx]
+    - clangxx=13.0.1      # [osx]
+    - cmake>=3.21.3
+    - fftw=3.3.9
+    - fmt=8.1.1
+    - gcc_linux-64=11.2.0  # [linux64]
+    - gxx_linux-64=11.2.0  # [linux64]
+    - git
+    - howardhinnant_date=3.0.1
+    - hdf5=1.10.6
+    - imagemagick=7.0.11_13
+    - ismrmrd=1.13.7
+    - ninja=1.11.*
+    - nlohmann_json=3.11.2
+    - xtensor=0.24.7
+    - xtensor-fftw=0.2.5
+  run:
+    - hdf5=1.10.6
+    - fftw=3.3.9
+
+# test:
+#   requires:
+#     - numpy
+#     - h5py
+#     - pytest
+
+about:
+  home: {{ repo }}
+  license: MIT
+  summary: 'ISMRM Raw Data Format (MRD)'
+  description: |
+    Libraries and tools for working with ISMRM Raw Data.
+  dev_url: {{ repo }}
+  doc_url: {{ repo }}
+  doc_source_url: {{ repo }}/blob/main/README.md
