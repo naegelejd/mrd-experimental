@@ -22,7 +22,7 @@ jobs:
       - name: Set up Miniconda
         uses: conda-incubator/setup-miniconda@v3
         with:
-          python-version: 3.11
+          # python-version: 3.11
           auto-activate-base: true
           activate-environment: ""
           miniforge-variant: Miniforge3
@@ -32,6 +32,7 @@ jobs:
         shell: bash -l {0}
         working-directory: cpp/conda
         run: |
+          conda install -n base conda-build conda-verify anaconda-client
           ./package.sh
           echo "Packages built: $(find build_pkg -name ismrmrd*.tar.bz2)"
 
