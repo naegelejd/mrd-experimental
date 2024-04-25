@@ -22,7 +22,6 @@ requirements:
   host:
     - fftw=3.3.9
     - fmt=8.1.1
-    - git
     - howardhinnant_date=3.0.1
     - hdf5=1.10.6
     - imagemagick=7.0.11_13
@@ -31,14 +30,11 @@ requirements:
     - xtensor=0.24.7
     - xtensor-fftw=0.2.5
   run:
+    - fmt=8.1.1
     - hdf5=1.10.6
+    - imagemagick=7.0.11_13
+    - ismrmrd=1.13.7
     - fftw=3.3.9
-
-# test:
-#   requires:
-#     - numpy
-#     - h5py
-#     - pytest
 
 about:
   home: {{ repo }}

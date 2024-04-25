@@ -22,4 +22,4 @@ channels=(
 channel_directives=$(printf -- "-c %s " "${channels[@]}")
 
 mkdir -p "$output_path"
-bash -c "conda build --no-anaconda-upload --output-folder $output_path $channel_directives $(dirname "$0")"
+bash -c "conda mambabuild --no-anaconda-upload --output-folder $output_path $channel_directives $(dirname "$0")"

@@ -16,6 +16,4 @@ echo 'Building mrd conda package using CMake...'
 cmake -GNinja -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=${PREFIX} \
       ../
 
-# ninja
-# cd tests && ./test_ismrmrd && cd ../
 ninja install
