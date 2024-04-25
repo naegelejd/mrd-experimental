@@ -1,2 +1,4 @@
-MACOSX_DEPLOYMENT_TARGET:
-  - 10.13
+MACOSX_DEPLOYMENT_TARGET:       # [osx]
+  - 10.13                       # [osx]
+CONDA_BUILD_SYSROOT:            # [osx]
+  - /opt/MacOSX10.13.sdk        # [osx]
