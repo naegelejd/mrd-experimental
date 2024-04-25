@@ -15,12 +15,11 @@ build:
 
 requirements:
   build:
-    - clang=14    # [osx]
-    - clangxx=14  # [osx]
-    - gcc_linux-64=11.2.0   # [linux]
-    - gxx_linux-64=11.2.0   # [linux]
-    - cmake>=3.21.3
-    - ninja=1.11.*
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - cmake
+    - ninja
+  host:
     - fftw=3.3.9
     - fmt=8.1.1
     - git
