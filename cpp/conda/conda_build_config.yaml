@@ -1,9 +1,9 @@
 c_compiler_version:
   - 11.2.0                      # [linux]
-  - 15                          # [osx]
+  - 14                          # [osx]
 cxx_compiler_version:
   - 11.2.0                      # [linux]
-  - 15                          # [osx]
+  - 14                          # [osx]
 
 MACOSX_DEPLOYMENT_TARGET:       # [osx]
   - 10.13                       # [osx]
