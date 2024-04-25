@@ -40,7 +40,7 @@ jobs:
         shell: bash -l {0}
         working-directory: cpp/conda
         run: |
-          conda install conda-build conda-verify anaconda-client
+          conda install conda-build boa conda-verify anaconda-client
           ./package.sh
           echo "Packages built: $(find build_pkg -name ismrmrd*.tar.bz2)"
 
