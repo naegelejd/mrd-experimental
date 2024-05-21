@@ -24,15 +24,6 @@ jobs:
       - name: Set up just command runner
         uses: extractions/setup-just@dd310ad5a97d8e7b41793f8ef055398d51ad4de6
 
-      # - name: Install dependencies
-      #   run: |
-      #     python3 -m pip install --upgrade pip
-      #     python3 -m pip install build
-
-      # - name: Build PyPI Package
-      #   run: python3 -m build
-      #   working-directory: python/
-
       - name: Build PyPI package
         run: just build-pypi-package
 

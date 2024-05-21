@@ -39,10 +39,6 @@ jobs:
       run: just cpp_version=${{ matrix.cppVersion }} matlab=enabled validate-with-no-changes
 
     - name: Package MATLAB toolbox
-      # uses: matlab-actions/run-build@v2
-      # with:
-      #   tasks: packageToolbox
-      #   startup-options: -sd ./matlab/
       run: just build-matlab-toolbox
 
     - name: Store MATLAB Toolbox
